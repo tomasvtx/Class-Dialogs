@@ -39,7 +39,7 @@
       <HintPath>..\..\..\..\.NET 3.5\AppConfigure\1.0\AppConfigure\bin\Release\AppConfigure.dll</HintPath>
     </Reference>
     <Reference Include="ExitWindowsEx">
-      <HintPath>..\..\..\..\.NET 2.0\ExitWindowsEx\ExitWindowsEx\bin\Release\ExitWindowsEx.dll</HintPath>
+      <HintPath>..\..\..\Class-ExitWindowsEx\ExitWindowsEx\bin\Release\ExitWindowsEx.dll</HintPath>
     </Reference>
     <Reference Include="MyApplication">
       <HintPath>..\..\..\MyApplication\MyApplication\bin\Release\MyApplication.dll</HintPath>
