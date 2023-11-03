@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AppConfigure.Utils;
+using System;
 using System.Diagnostics;
 using System.Linq;
 using System.Runtime.InteropServices;
@@ -286,7 +287,7 @@ namespace Dialogs
                 if (result == MessageBoxResult.Yes)
                 {
                     // Volání metody pro ukončení jiných instancí aplikace.
-                    AppConfigure.SystemInfoUtility systemInfoUtility = new AppConfigure.SystemInfoUtility(ViewModel.AppName);
+                    SystemInfoUtility systemInfoUtility = new SystemInfoUtility(ViewModel.AppName);
                     systemInfoUtility.UzavřiOstatníInstance();
                 }
             }
