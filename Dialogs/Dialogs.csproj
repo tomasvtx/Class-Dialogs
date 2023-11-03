@@ -35,8 +35,9 @@
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="AppConfigure">
-      <HintPath>..\..\..\..\.NET 3.5\AppConfigure\1.0\AppConfigure\bin\Release\AppConfigure.dll</HintPath>
+    <Reference Include="AppConfigure, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Class-AppConfigure\1.0\AppConfigure\bin\Release\AppConfigure.dll</HintPath>
     </Reference>
     <Reference Include="ExitWindowsEx">
       <HintPath>..\..\..\Class-ExitWindowsEx\ExitWindowsEx\bin\Release\ExitWindowsEx.dll</HintPath>

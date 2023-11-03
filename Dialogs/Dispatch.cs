@@ -114,7 +114,7 @@ namespace Dialogs
         /// <param name="mainWindow">Hlavní okno aplikace.</param>
         /// <param name="appConfigure">Konfigurace aplikace.</param>
         /// <returns>Operaci Task reprezentující asynchronní načtení hlavního okna.</returns>
-        public static Task NastavHlavniOkno(this Dispatcher dispatcher, Window mainWindow, DaikinAppConfigure appConfigure)
+        public static Task NastavHlavniOkno(this Dispatcher dispatcher, Window mainWindow, AppConfiguration appConfigure)
         {
             dispatcher.InvokeAsync(() =>
             {
