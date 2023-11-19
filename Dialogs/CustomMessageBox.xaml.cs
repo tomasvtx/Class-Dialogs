@@ -18,7 +18,7 @@ namespace Dialogs
             this.Title = Title;
             this.ShowInTaskbar = false;
             this.Content.Text = Message;
-            this.WindowStyle = WindowStyle.None;
+           // this.WindowStyle = WindowStyle.None;
 
             // Konfigurace viditelnosti a textu tlačítek v závislosti na zvoleném MessageBoxButton typu.
             SetButtonVisibility(messageBoxButton);

@@ -1,5 +1,6 @@
 ﻿using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Input;
 using System.Windows.Interop;
 
 namespace Dialogs
@@ -16,6 +17,7 @@ namespace Dialogs
             InitializeComponent();
 
             this.Title = Title;
+            Titleq.Content = Title;
             this.ShowInTaskbar = false;
             this.Content.Text = Message;
             this.WindowStyle = WindowStyle.None;
@@ -71,6 +73,14 @@ namespace Dialogs
         {
             MessageBoxID = 3;
             Close();
+        }
+
+        private void TitleqMouseLeftButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+            if (e.LeftButton == MouseButtonState.Pressed)
+            {
+                DragMove();
+            }
         }
     }
 }
