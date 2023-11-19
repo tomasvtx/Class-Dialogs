@@ -65,6 +65,9 @@
     <Compile Include="Converter\DescriptionConv.cs" />
     <Compile Include="Converter\ExitButtonConv.cs" />
     <Compile Include="Converter\KillConv.cs" />
+    <Compile Include="CustomizedMessageBox.xaml.cs">
+      <DependentUpon>CustomizedMessageBox.xaml</DependentUpon>
+    </Compile>
     <Compile Include="CustomMessageBox.xaml.cs">
       <DependentUpon>CustomMessageBox.xaml</DependentUpon>
     </Compile>
@@ -77,6 +80,10 @@
     <Compile Include="ViewModel\Model.cs" />
     <Compile Include="ViewModel\ViewModel.cs" />
     <Compile Include="ViewModel\ViewModelBase.cs" />
+    <Page Include="CustomizedMessageBox.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="CustomMessageBox.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
