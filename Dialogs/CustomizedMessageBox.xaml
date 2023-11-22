@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Dialogs"
         mc:Ignorable="d"
-        Title="CustomizedMessageBox" Height="190" Width="470" Topmost="True" ShowActivated="True" ShowInTaskbar="False" WindowStartupLocation="CenterOwner" ResizeMode="NoResize">
+        Title="CustomizedMessageBox" Height="240" Width="480" Topmost="True" ShowActivated="True" ShowInTaskbar="False" WindowStartupLocation="CenterOwner" ResizeMode="NoResize">
 
     <Grid Background="BurlyWood">
         <Grid.RowDefinitions>
@@ -19,7 +19,7 @@
         </Label>
 
         <ScrollViewer HorizontalContentAlignment="Center" HorizontalAlignment="Center" Grid.Row="1" Grid.ColumnSpan="6" Width="490" Height="Auto" VerticalScrollBarVisibility="Auto">
-            <TextBlock Width="455" Padding="8" Margin="5" Background="White" TextWrapping="Wrap" Name="Content"/>
+            <TextBlock Padding="8" Margin="9,0,9,0" Background="White" TextWrapping="Wrap" Name="Content"/>
         </ScrollViewer>
 
         <StackPanel HorizontalAlignment="Center" Orientation="Horizontal" Grid.Row="2">
@@ -63,6 +63,20 @@
                 </Button.Style>
             </Button>
             <Button Width="100" Click="BUTTON4Click" x:Name="BUTTON4" Visibility="Visible" Background="White" FontWeight="Bold" Foreground="Firebrick" Padding="10" Margin="10" Content="CANCEL">
+                <Button.Style>
+                    <Style TargetType="Button">
+                        <Setter Property="Opacity" Value="1"/>
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="White"/>
+                                <Setter Property="Opacity" Value="0.8"/>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </Button.Style>
+            </Button>
+
+            <Button Width="100" Click="BUTTON5Click" x:Name="BUTTON5" Visibility="Visible" Background="White" FontWeight="Bold" Foreground="Firebrick" Padding="10" Margin="10" Content="CANCEL">
                 <Button.Style>
                     <Style TargetType="Button">
                         <Setter Property="Opacity" Value="1"/>

@@ -12,7 +12,7 @@ namespace Dialogs
     {
         public byte MessageBoxID;
 
-        public CustomizedMessageBox(string Title, string Message, byte CountButtons, string Button1 = null, string Button2 = null, string Button3 = null, string Button4 = null)
+        public CustomizedMessageBox(string Title, string Message, byte CountButtons, string Button1 = null, string Button2 = null, string Button3 = null, string Button4 = null, string Button5 = null)
         {
             InitializeComponent();
 
@@ -30,7 +30,8 @@ namespace Dialogs
             SetButtonText(BUTTON2, Button2);
             SetButtonText(BUTTON3, Button3);
             SetButtonText(BUTTON4, Button4);
-                }
+            SetButtonText(BUTTON5, Button5);
+        }
 
         /// <summary>
         /// Nastaví text tlačítka, pokud je poskytnutý text neprázdný.
@@ -52,6 +53,9 @@ namespace Dialogs
             BUTTON2.Visibility = count > 1 ? Visibility.Visible : Visibility.Collapsed;
             BUTTON3.Visibility = count > 2 ? Visibility.Visible : Visibility.Collapsed;
             BUTTON4.Visibility = count > 3 ? Visibility.Visible : Visibility.Collapsed;
+            BUTTON5.Visibility = count > 4 ? Visibility.Visible : Visibility.Collapsed;
+
+            Width = count > 4 ? 590 : Width;
         }
 
         private void BUTTON1Click(object sender, RoutedEventArgs e)
@@ -71,7 +75,7 @@ namespace Dialogs
         }
         private void BUTTON4Click(object sender, RoutedEventArgs e)
         {
-            MessageBoxID = 3;
+            MessageBoxID = 4;
             Close();
         }
 
@@ -81,6 +85,12 @@ namespace Dialogs
             {
                 DragMove();
             }
+        }
+
+        private void BUTTON5Click(object sender, RoutedEventArgs e)
+        {
+            MessageBoxID = 5;
+            Close();
         }
     }
 }
