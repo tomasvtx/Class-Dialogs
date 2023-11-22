@@ -68,9 +68,6 @@
     <Compile Include="CustomizedMessageBox.xaml.cs">
       <DependentUpon>CustomizedMessageBox.xaml</DependentUpon>
     </Compile>
-    <Compile Include="CustomMessageBox.xaml.cs">
-      <DependentUpon>CustomMessageBox.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Login.xaml.cs">
       <DependentUpon>Login.xaml</DependentUpon>
     </Compile>
@@ -83,10 +80,6 @@
     <Page Include="CustomizedMessageBox.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
-    </Page>
-    <Page Include="CustomMessageBox.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="ErrorDialog.xaml">
       <SubType>Designer</SubType>

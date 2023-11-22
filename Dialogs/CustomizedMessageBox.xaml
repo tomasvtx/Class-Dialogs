@@ -3,92 +3,51 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:Dialogs"
         mc:Ignorable="d"
-        Title="CustomizedMessageBox" Height="240" Width="480" Topmost="True" ShowActivated="True" ShowInTaskbar="False" WindowStartupLocation="CenterOwner" ResizeMode="NoResize">
+        Title="CustomizedMessageBox" Height="240" Width="auto" Topmost="True" ShowActivated="True" ShowInTaskbar="False" WindowStartupLocation="CenterOwner" ResizeMode="NoResize" Background="Transparent" AllowsTransparency="True">
 
-    <Grid Background="BurlyWood">
-        <Grid.RowDefinitions>
-            <RowDefinition Height="auto"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="auto"/>
-        </Grid.RowDefinitions>
+    <Window.Resources>
+        <!-- Define a style for the buttons -->
+        <Style x:Key="ButtonStyle" TargetType="Button">
+            <Setter Property="Opacity" Value="1"/>
+            <Setter Property="Background" Value="White"/>
+            <Setter Property="Foreground" Value="{Binding RelativeSource={RelativeSource Self}, Path=Foreground}"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="Padding" Value="10"/>
+            <Setter Property="Margin" Value="10"/>
+            <Setter Property="MinWidth" Value="100"/>
+            <Setter Property="Background" Value="White"/>
+            <Setter Property="Content" Value="TestText"/>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="White"/>
+                    <Setter Property="Opacity" Value="0.8"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+    </Window.Resources>
 
-        <Label FontWeight="Bold" FontSize="19" Name="Titleq" HorizontalContentAlignment="Center" MouseLeftButtonDown="TitleqMouseLeftButtonDown">
-            <!-- Obsah nadpisu zde -->
-        </Label>
+        <Grid HorizontalAlignment="Center" Width="auto" Background="BurlyWood">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="auto"/>
+            </Grid.RowDefinitions>
 
-        <ScrollViewer HorizontalContentAlignment="Center" HorizontalAlignment="Center" Grid.Row="1" Grid.ColumnSpan="6" Width="490" Height="Auto" VerticalScrollBarVisibility="Auto">
-            <TextBlock Padding="8" Margin="9,0,9,0" Background="White" TextWrapping="Wrap" Name="Content"/>
-        </ScrollViewer>
+            <Label FontWeight="Bold" FontSize="19" Name="Titleq" HorizontalContentAlignment="Center" MouseLeftButtonDown="TitleqMouseLeftButtonDown">
+            </Label>
 
-        <StackPanel HorizontalAlignment="Center" Orientation="Horizontal" Grid.Row="2">
-            <Button Width="100" Click="BUTTON1Click" x:Name="BUTTON1" Visibility="Visible" Background="White" FontWeight="Bold" Foreground="Green" Padding="10" Margin="10" Content="YES">
-                <Button.Style>
-                    <Style TargetType="Button">
-                        <Setter Property="Opacity" Value="1"/>
-                        <Style.Triggers>
-                            <Trigger Property="IsMouseOver" Value="True">
-                                <Setter Property="Background" Value="White"/>
-                                <Setter Property="Opacity" Value="0.8"/>
-                            </Trigger>
-                        </Style.Triggers>
-                    </Style>
-                </Button.Style>
-            </Button>
-            <Button Width="100" Click="BUTTON2Click" x:Name="BUTTON2" Visibility="Visible" Background="White" FontWeight="Bold" Foreground="Red" Padding="10" Margin="10" Content="NO">
-                <Button.Style>
-                    <Style TargetType="Button">
-                        <Setter Property="Opacity" Value="1"/>
-                        <Style.Triggers>
-                            <Trigger Property="IsMouseOver" Value="True">
-                                <Setter Property="Background" Value="White"/>
-                                <Setter Property="Opacity" Value="0.8"/>
-                            </Trigger>
-                        </Style.Triggers>
-                    </Style>
-                </Button.Style>
-            </Button>
-            <Button Width="100" Click="BUTTON3Click" x:Name="BUTTON3" Visibility="Visible" Background="White" FontWeight="Bold" Foreground="Orange" Padding="10" Margin="10" Content="CANCEL">
-                <Button.Style>
-                    <Style TargetType="Button">
-                        <Setter Property="Opacity" Value="1"/>
-                        <Style.Triggers>
-                            <Trigger Property="IsMouseOver" Value="True">
-                                <Setter Property="Background" Value="White"/>
-                                <Setter Property="Opacity" Value="0.8"/>
-                            </Trigger>
-                        </Style.Triggers>
-                    </Style>
-                </Button.Style>
-            </Button>
-            <Button Width="100" Click="BUTTON4Click" x:Name="BUTTON4" Visibility="Visible" Background="White" FontWeight="Bold" Foreground="Firebrick" Padding="10" Margin="10" Content="CANCEL">
-                <Button.Style>
-                    <Style TargetType="Button">
-                        <Setter Property="Opacity" Value="1"/>
-                        <Style.Triggers>
-                            <Trigger Property="IsMouseOver" Value="True">
-                                <Setter Property="Background" Value="White"/>
-                                <Setter Property="Opacity" Value="0.8"/>
-                            </Trigger>
-                        </Style.Triggers>
-                    </Style>
-                </Button.Style>
-            </Button>
+            <ScrollViewer HorizontalContentAlignment="Center" HorizontalAlignment="Stretch" Grid.Row="1" Grid.ColumnSpan="6"  Height="Auto" VerticalScrollBarVisibility="Auto">
+                <TextBlock Padding="8" Margin="9,0,9,0" Background="White" TextWrapping="Wrap" Name="Content"/>
+            </ScrollViewer>
 
-            <Button Width="100" Click="BUTTON5Click" x:Name="BUTTON5" Visibility="Visible" Background="White" FontWeight="Bold" Foreground="Firebrick" Padding="10" Margin="10" Content="CANCEL">
-                <Button.Style>
-                    <Style TargetType="Button">
-                        <Setter Property="Opacity" Value="1"/>
-                        <Style.Triggers>
-                            <Trigger Property="IsMouseOver" Value="True">
-                                <Setter Property="Background" Value="White"/>
-                                <Setter Property="Opacity" Value="0.8"/>
-                            </Trigger>
-                        </Style.Triggers>
-                    </Style>
-                </Button.Style>
-            </Button>
-        </StackPanel>
-    </Grid>
+        <StackPanel x:Name="ButtonStackPanel" HorizontalAlignment="Stretch" Orientation="Horizontal" Grid.Row="2">
+                <!-- Use the ButtonStyle for each button -->
+                <Button x:Name="BUTTON1" Foreground="Green" Style="{StaticResource ButtonStyle}"/>
+                <Button x:Name="BUTTON2" Foreground="Red" Style="{StaticResource ButtonStyle}"/>
+                <Button x:Name="BUTTON3" Foreground="Orange" Style="{StaticResource ButtonStyle}"/>
+                <Button x:Name="BUTTON4" Foreground="Firebrick" Style="{StaticResource ButtonStyle}"/>
+                <Button x:Name="BUTTON5" Foreground="Sienna" Style="{StaticResource ButtonStyle}"/>
+            </StackPanel>
+        </Grid>
 </Window>

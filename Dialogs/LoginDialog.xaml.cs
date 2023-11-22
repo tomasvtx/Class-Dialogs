@@ -9,7 +9,7 @@ namespace Dialogs
     {
         public string Jmeno = string.Empty;
         public string Password = string.Empty;
-        private Login loginControl;
+        private readonly Login loginControl;
 
         public LoginDialog()
         {
