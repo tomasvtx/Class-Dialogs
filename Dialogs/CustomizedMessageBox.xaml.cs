@@ -1,6 +1,8 @@
-﻿using System.Collections;
+﻿using DialogService;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
@@ -8,22 +10,27 @@ using System.Windows.Media;
 
 namespace Dialogs
 {
-    public partial class CustomizedMessageBox : Window
+    public partial class CustomizedMessageBox : Window, IDialogService
     {
-        public byte MessageBoxID;
+        public byte MessageBoxID { get; set; }
 
-        public CustomizedMessageBox(string title, string message, IEnumerable<string> buttonLabels)
+        public CustomizedMessageBox()
         {
             InitializeComponent();
+        }
 
-            Title = title;
-            Titleq.Content = title;
+        public void ShowMessageBox(string Title, string Message, IEnumerable<string> Buttons)
+        {
+            this.Title = Title;
+            Titleq.Content = Title;
             ShowInTaskbar = false;
-            Content.Text = message;
+            Content.Text = Message;
             WindowStyle = WindowStyle.None;
 
             // Configure buttons
-            ConfigureButtons(buttonLabels);
+            ConfigureButtons(Buttons);
+
+            ShowDialog();
         }
 
         private void ConfigureButtons(IEnumerable<string> labels)
